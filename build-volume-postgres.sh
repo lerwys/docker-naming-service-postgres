@@ -9,4 +9,4 @@ DNS_IP="$2"
 
 # Create volume container
 docker create -v /var/lib/postgresql/data --name naming-service-postgres-volume \
-    --net ${NET_NAME} --dns ${DNS_IP} postgres
+    --net ${NET_NAME} --dns ${DNS_IP} postgres 2>/dev/null || true
