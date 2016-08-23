@@ -14,4 +14,4 @@ POSTGRES_PASSWORD="$5"
 docker run --name naming-service-postgres-psql --net ${NET_NAME} --dns ${DNS_IP} \
     -e POSTGRES_USER=${POSTGRES_USER} \
     -e POSTGRES_PASSWORD=${POSTGRES_PASSWORD} \
-    -it postgres psql -h naming-service-postgres -U postgres
+    -it postgres psql -h naming-service-postgres -U ${POSTGRES_USER}
