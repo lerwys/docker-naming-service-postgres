@@ -11,4 +11,4 @@ set -u
 ./setup-postgres.sh ${NET_NAME} ${DNS_IP}
 
 # Run postgres
-./run-postgres.sh ${NET_NAME} ${DNS_IP} ${POSTGRES_PORT}
+./run-postgres.sh ${NET_NAME} ${DNS_IP} ${POSTGRES_PORT} ${POSTGRES_USER} ${POSTGRES_PASSWORD}
