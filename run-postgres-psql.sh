@@ -4,14 +4,10 @@ set -a
 set -e
 set -u
 
-NET_NAME="$1"
-DNS_IP="$2"
-POSTGRES_PORT="$3"
-POSTGRES_USER="$4"
-POSTGRES_PASSWORD="$5"
+. ./env-vars.sh
 
 # Run postgres
-docker run --name naming-service-postgres-psql --net ${NET_NAME} --dns ${DNS_IP} \
+docker run --name ${NAMING_CONVENTION_DOCKER_RUN_NAME_PSQL} --net ${NET_NAME} --dns ${DNS_IP} \
     -e POSTGRES_USER=${POSTGRES_USER} \
     -e POSTGRES_PASSWORD=${POSTGRES_PASSWORD} \
-    -it postgres psql -h naming-service-postgres -U ${POSTGRES_USER}
+    -it postgres psql -h ${NAMING_CONVENTION_DOCKER_IMAGE_NAME} -U ${POSTGRES_USER}
